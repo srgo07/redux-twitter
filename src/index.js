@@ -8,14 +8,14 @@ import tweets from './reducers/tweets';
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import thunk from 'redux-thunk';
-
+import logger from "./middleware/logger";
 const store = createStore(
     combineReducers({
         load,
         users,
         tweets
     }),
-    applyMiddleware(thunk)
+    applyMiddleware(thunk, logger)
 )
 
 ReactDOM.render(
